@@ -1,0 +1,24 @@
+import string
+
+Generated = list(string.ascii_lowercase)
+
+print("[+] LETS START THE CEASER CIPHER ENCRYPTION: \n")
+
+PlainText = input("[+] Enter the plain text:\n")
+
+shift = input("[+] Enter NUmber of Shifts:")
+List_Conv = []
+print(PlainText)
+Encrypted_Text = []
+for i in range(len(PlainText)):
+    Encrypted_Text.append(chr(int(ord(PlainText[i]))+(int(shift))))
+for i in range(len(PlainText)):
+    if int(ord(Encrypted_Text[i])) > 122:
+        Encrypted_Text[i] = chr(ord(Encrypted_Text[i])%122  + 96)
+
+
+
+
+Encrypted_Text = "".join(Encrypted_Text)
+Encrypted_Text = Encrypted_Text.replace('"'," ")
+print(Encrypted_Text)
