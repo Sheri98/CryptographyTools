@@ -1,0 +1,34 @@
+import string
+
+Lower_case = []
+Upper_case = []
+Lower_case_r = ["0"]*26
+Upper_case_r= ["0"]*26
+k=0
+for i in string.ascii_lowercase:
+    Lower_case.append(i)
+    Lower_case_r[25-k]=i
+    k+=1
+k=0
+for i in string.ascii_uppercase:
+    Upper_case.append(i)
+    Upper_case_r[25-k] = i
+    k+=1
+plain_text = str(input("[*] Enter the Plain Text:\t"))
+encrypted_text = ["0"]*len(plain_text)
+for i in range(len(plain_text)):
+    for j in range(25):
+        if plain_text[i] == Lower_case[j]:
+            encrypted_text[i] = Lower_case_r[j]
+        else:
+            continue
+    for k in range(25):
+        if plain_text[i] == Upper_case[k]:
+            encrypted_text[i] = Upper_case_r[k]
+        else:
+            continue
+        
+encrypted_text = "".join(encrypted_text)
+print(f"{encrypted_text}")
+
+                     
